@@ -133,3 +133,15 @@ body {
     font-size: 36px;
   }
 }
+.page {
+  display: none;
+}
+
+.page.active {
+  display: block;
+}
+
+.nav-btn.active {
+  background: #0f172a;
+  color: white;
+}
