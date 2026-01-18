@@ -1,69 +1,80 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mini SPA Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- HERO -->
-  <header class="hero">
-    <div class="hero-inner">
-      <h1>User Dashboard</h1>
-      <p>
-        Dashboard ini dibuat sebagai eksperimen kecil
-        untuk memahami bagaimana antarmuka yang rapi,
-        logika sederhana, dan interaksi pengguna
-        bisa bekerja bersama.
-      </p>
-
-      <div class="hero-actions">
-        <button data-page="profile" class="active">Profile</button>
-        <button data-page="tasks">Task</button>
-        <button data-page="activity">Activity</button>
-      </div>
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <span class="logo">Dashboard</span>
+    <div class="nav-links">
+      <button class="nav-btn active" data-page="dashboard">Dashboard</button>
+      <button class="nav-btn" data-page="tasks">Tasks</button>
+      <button class="nav-btn" data-page="profile">Profile</button>
     </div>
-  </header>
+  </nav>
 
-  <!-- MAIN CONTENT -->
+  <!-- MAIN -->
   <main class="container">
 
-    <!-- PROFILE -->
-    <section id="profile" class="page active">
-      <h2>Profil Pengguna</h2>
-      <div class="card profile-card">
-        <div class="avatar">IM</div>
-        <div>
-          <p><strong>Nama:</strong> Ivan Maulana</p>
-          <p><strong>Peran:</strong> Frontend Enthusiast</p>
-          <p><strong>Status:</strong> Aktif</p>
+    <!-- DASHBOARD -->
+    <section id="dashboard" class="page active">
+      <h2>Overview</h2>
+      <p class="subtitle">
+        A quiet space to keep track of what matters today.
+      </p>
+
+      <div class="stats">
+        <div class="card">
+          <h3 id="totalTasks">0</h3>
+          <p>Total Tasks</p>
+        </div>
+        <div class="card">
+          <h3 id="activeTasks">0</h3>
+          <p>Active</p>
+        </div>
+        <div class="card">
+          <h3 id="doneTasks">0</h3>
+          <p>Completed</p>
         </div>
       </div>
     </section>
 
     <!-- TASKS -->
     <section id="tasks" class="page">
-      <h2>Daftar Tugas</h2>
-      <div class="card">
-        <div class="task-input">
-          <input type="text" id="taskInput" placeholder="Tulis tugas baru..." />
-          <button id="addTask">Tambah</button>
-        </div>
-        <ul id="taskList"></ul>
+      <h2>My Tasks</h2>
+
+      <div class="task-input">
+        <input
+          type="text"
+          id="taskInput"
+          placeholder="Add a new task..."
+        />
+        <button id="addTaskBtn">Add</button>
       </div>
+
+      <ul id="taskList"></ul>
+
+      <p id="emptyState" class="empty-state">
+        Nothing here yet. Take it slow.
+      </p>
     </section>
 
-    <!-- ACTIVITY -->
-    <section id="activity" class="page">
-      <h2>Aktivitas Terakhir</h2>
-      <div class="card">
-        <ul>
-          <li>Membuka dashboard</li>
-          <li>Menambahkan tugas baru</li>
-          <li>Berpindah antar halaman</li>
-        </ul>
+    <!-- PROFILE -->
+    <section id="profile" class="page">
+      <h2>User Profile</h2>
+
+      <div class="profile-card">
+        <div class="avatar">IM</div>
+        <div class="profile-info">
+          <p><strong>Name:</strong> Ivan Maulana</p>
+          <p><strong>Role:</strong> Frontend Enthusiast</p>
+          <p><strong>Status:</strong> Active</p>
+        </div>
       </div>
     </section>
 
