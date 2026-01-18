@@ -2,73 +2,50 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Simple User Dashboard</title>
+  <title>Mini SPA Dashboard</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- NAVIGATION -->
+  <!-- NAVBAR -->
   <nav class="navbar">
-    <h1 class="logo">Dashboard</h1>
+    <span class="logo">Dashboard</span>
     <div class="nav-links">
-      <button data-page="dashboard" class="nav-btn active">Dashboard</button>
-      <button data-page="tasks" class="nav-btn">Tasks</button>
-      <button data-page="profile" class="nav-btn">Profile</button>
+      <button class="nav-btn active" data-page="dashboard">Dashboard</button>
+      <button class="nav-btn" data-page="tasks">Tasks</button>
+      <button class="nav-btn" data-page="profile">Profile</button>
     </div>
   </nav>
 
-  <!-- MAIN CONTENT -->
+  <!-- PAGES -->
   <main class="container">
 
-    <!-- DASHBOARD PAGE -->
     <section id="dashboard" class="page active">
       <h2>Overview</h2>
-
-      <div class="stats">
-        <div class="card">
-          <h3>3</h3>
-          <p>Projects</p>
-        </div>
-        <div class="card">
-          <h3>24</h3>
-          <p>Tasks</p>
-        </div>
-        <div class="card">
-          <h3>5</h3>
-          <p>Messages</p>
-        </div>
-      </div>
+      <p>This is the dashboard overview.</p>
     </section>
 
-    <!-- TASKS PAGE -->
     <section id="tasks" class="page">
       <h2>My Tasks</h2>
 
       <div class="task-input">
-        <input type="text" id="taskInput" placeholder="Add a new task..." />
+        <input id="taskInput" type="text" placeholder="Add a task..." />
         <button id="addTaskBtn">Add</button>
       </div>
 
-      <ul id="taskList" class="task-list"></ul>
+      <ul id="taskList"></ul>
     </section>
 
-    <!-- PROFILE PAGE -->
     <section id="profile" class="page">
-      <h2>User Profile</h2>
-
-      <div class="profile-card">
-        <div class="avatar">IM</div>
-        <div class="profile-info">
-          <p><strong>Name:</strong> Ivan Maulana</p>
-          <p><strong>Role:</strong> Frontend Enthusiast</p>
-          <p><strong>Status:</strong> Active</p>
-        </div>
-      </div>
+      <h2>Profile</h2>
+      <p>Name: Ivan Maulana</p>
+      <p>Role: Frontend Enthusiast</p>
     </section>
 
   </main>
 
+  <!-- JS -->
   <script src="script.js"></script>
 </body>
 </html>
