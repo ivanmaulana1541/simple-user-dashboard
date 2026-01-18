@@ -1,65 +1,41 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-  /* =========================
-     MINI SPA NAVIGATION
-  ========================= */
-
-  const navButtons = document.querySelectorAll(".nav-btn");
+  const buttons = document.querySelectorAll(".nav-btn");
   const pages = document.querySelectorAll(".page");
 
   function showPage(pageId) {
     pages.forEach(page => page.classList.remove("active"));
-    navButtons.forEach(btn => btn.classList.remove("active"));
+    buttons.forEach(btn => btn.classList.remove("active"));
 
-    const targetPage = document.getElementById(pageId);
-    const targetBtn = document.querySelector(
-      `.nav-btn[data-page="${pageId}"]`
-    );
-
-    if (targetPage) targetPage.classList.add("active");
-    if (targetBtn) targetBtn.classList.add("active");
+    document.getElementById(pageId).classList.add("active");
+    document.querySelector(`.nav-btn[data-page="${pageId}"]`)
+      .classList.add("active");
   }
 
-  navButtons.forEach(button => {
-    button.addEventListener("click", () => {
-      const page = button.dataset.page;
+  buttons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const page = btn.dataset.page;
       showPage(page);
     });
   });
 
-  // Default page
+  // Default
   showPage("dashboard");
 
-  /* =========================
-     TASK MANAGER
-  ========================= */
+  // TASK LOGIC
+  const input = document.getElementById("taskInput");
+  const addBtn = document.getElementById("addTaskBtn");
+  const list = document.getElementById("taskList");
 
-  const taskInput = document.getElementById("taskInput");
-  const addTaskBtn = document.getElementById("addTaskBtn");
-  const taskList = document.getElementById("taskList");
-
-  let tasks = [];
-
-  function renderTasks() {
-    taskList.innerHTML = "";
-    tasks.forEach(task => {
-      const li = document.createElement("li");
-      li.textContent = task;
-      taskList.appendChild(li);
-    });
-  }
-
-  addTaskBtn.addEventListener("click", () => {
-    const text = taskInput.value.trim();
+  addBtn.addEventListener("click", () => {
+    const text = input.value.trim();
     if (!text) return;
 
-    tasks.push(text);
-    taskInput.value = "";
-    renderTasks();
-  });
+    const li = document.createElement("li");
+    li.textContent = text;
+    list.appendChild(li);
 
-  taskInput.addEventListener("keydown", e => {
-    if (e.key === "Enter") addTaskBtn.click();
+    input.value = "";
   });
 
 });
