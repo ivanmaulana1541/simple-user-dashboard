@@ -1,30 +1,41 @@
 /* =========================
-   TOP BAR / HEADER
+   RESET & BASE
 ========================= */
 
-.topbar {
-  background: #0f172a; /* biru dongker ala Syabil */
-  color: #ffffff;
-  padding: 18px 0;
+* {
+  box-sizing: border-box;
 }
 
-.topbar-inner {
-  max-width: 1100px;
-  margin: auto;
-  padding: 0 24px;
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #f8fafc;
+  color: #111827;
+  line-height: 1.6;
+}
+
+/* =========================
+   NAVBAR (SYABIL STYLE)
+========================= */
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #0f172a; /* biru dongker */
+  padding: 20px 32px;
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
 }
 
 .logo {
   font-size: 20px;
   font-weight: 600;
-  letter-spacing: 0.3px;
+  color: #ffffff;
 }
 
-/* NAV BUTTONS */
-.nav {
+.nav-links {
   display: flex;
   gap: 28px;
 }
@@ -32,11 +43,11 @@
 .nav-btn {
   background: none;
   border: none;
-  color: rgba(255, 255, 255, 0.75);
   font-size: 15px;
+  color: rgba(255, 255, 255, 0.7);
   cursor: pointer;
-  padding-bottom: 4px;
   position: relative;
+  padding-bottom: 4px;
   transition: color 0.3s ease;
 }
 
@@ -44,7 +55,6 @@
   color: #ffffff;
 }
 
-/* ACTIVE STATE */
 .nav-btn.active {
   color: #ffffff;
 }
@@ -59,72 +69,11 @@
   background: #ffffff;
   border-radius: 2px;
 }
-/* RESET */
-* {
-  box-sizing: border-box;
-}
 
-body {
-  margin: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background: #f8fafc;
-  color: #111827;
-  line-height: 1.6;
-}
+/* =========================
+   LAYOUT
+========================= */
 
-/* NAVBAR */
-.navbar {
-  position: sticky;
-  top: 0;
-  background: rgba(248, 250, 252, 0.85);
-  backdrop-filter: blur(8px);
-  border-bottom: 1px solid #e5e7eb;
-  padding: 20px 32px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.logo {
-  font-weight: 500;
-  font-size: 18px;
-}
-
-.nav-links {
-  display: flex;
-  gap: 20px;
-}
-
-.nav-btn {
-  background: none;
-  border: none;
-  font-size: 15px;
-  color: #475569;
-  cursor: pointer;
-  position: relative;
-}
-
-.nav-btn::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -4px;
-  width: 0;
-  height: 2px;
-  background: #020617;
-  transition: width 0.3s ease;
-}
-
-.nav-btn:hover::after,
-.nav-btn.active::after {
-  width: 100%;
-}
-
-.nav-btn.active {
-  color: #020617;
-}
-
-/* LAYOUT */
 .container {
   max-width: 960px;
   margin: auto;
@@ -151,7 +100,10 @@ body {
   }
 }
 
-/* HEADINGS */
+/* =========================
+   HEADINGS & TEXT
+========================= */
+
 h2 {
   font-size: 32px;
   font-weight: 500;
@@ -165,7 +117,10 @@ h2 {
   max-width: 520px;
 }
 
-/* STATS */
+/* =========================
+   STATISTICS
+========================= */
+
 .stats {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -173,7 +128,7 @@ h2 {
 }
 
 .card {
-  background: white;
+  background: #ffffff;
   border-radius: 20px;
   padding: 32px;
   box-shadow: 0 10px 30px rgba(2, 6, 23, 0.06);
@@ -189,7 +144,10 @@ h2 {
   font-size: 14px;
 }
 
-/* TASKS */
+/* =========================
+   TASKS
+========================= */
+
 .task-input {
   display: flex;
   gap: 12px;
@@ -201,6 +159,7 @@ h2 {
   padding: 14px 16px;
   border-radius: 12px;
   border: 1px solid #e5e7eb;
+  font-size: 14px;
 }
 
 .task-input button {
@@ -210,6 +169,7 @@ h2 {
   background: #020617;
   color: white;
   cursor: pointer;
+  font-size: 14px;
 }
 
 #taskList {
@@ -237,7 +197,10 @@ h2 {
   display: none;
 }
 
-/* PROFILE */
+/* =========================
+   PROFILE
+========================= */
+
 .profile-card {
   background: white;
   border-radius: 24px;
@@ -257,4 +220,26 @@ h2 {
   justify-content: center;
   font-weight: 600;
   margin-bottom: 20px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 600px) {
+  .navbar {
+    padding: 16px 20px;
+  }
+
+  .nav-links {
+    gap: 16px;
+  }
+
+  h2 {
+    font-size: 26px;
+  }
+
+  .container {
+    padding: 60px 20px 100px;
+  }
 }
