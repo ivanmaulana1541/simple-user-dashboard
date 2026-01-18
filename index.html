@@ -18,34 +18,64 @@
     </div>
   </nav>
 
-  <!-- PAGES -->
+  <!-- MAIN -->
   <main class="container">
 
+    <!-- DASHBOARD PAGE -->
     <section id="dashboard" class="page active">
       <h2>Overview</h2>
-      <p>This is the dashboard overview.</p>
+
+      <div class="stats">
+        <div class="card">
+          <h3 id="totalTasks">0</h3>
+          <p>Total Tasks</p>
+        </div>
+
+        <div class="card">
+          <h3 id="activeTasks">0</h3>
+          <p>Active</p>
+        </div>
+
+        <div class="card">
+          <h3 id="doneTasks">0</h3>
+          <p>Completed</p>
+        </div>
+      </div>
     </section>
 
+    <!-- TASKS PAGE -->
     <section id="tasks" class="page">
       <h2>My Tasks</h2>
 
       <div class="task-input">
-        <input id="taskInput" type="text" placeholder="Add a task..." />
+        <input
+          type="text"
+          id="taskInput"
+          placeholder="Add a new task..."
+        />
         <button id="addTaskBtn">Add</button>
       </div>
 
       <ul id="taskList"></ul>
     </section>
 
+    <!-- PROFILE PAGE -->
     <section id="profile" class="page">
-      <h2>Profile</h2>
-      <p>Name: Ivan Maulana</p>
-      <p>Role: Frontend Enthusiast</p>
+      <h2>User Profile</h2>
+
+      <div class="profile-card">
+        <div class="avatar">IM</div>
+        <div class="profile-info">
+          <p><strong>Name:</strong> Ivan Maulana</p>
+          <p><strong>Role:</strong> Frontend Enthusiast</p>
+          <p><strong>Status:</strong> Active</p>
+        </div>
+      </div>
     </section>
 
   </main>
 
-  <!-- JS -->
+  <!-- SCRIPT -->
   <script src="script.js"></script>
 </body>
 </html>
