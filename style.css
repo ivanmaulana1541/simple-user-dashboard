@@ -58,3 +58,12 @@ body {
 .task-input button {
   padding: 8px 12px;
 }
+#taskList li {
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+#taskList li.done {
+  text-decoration: line-through;
+  color: #9ca3af;
+}
