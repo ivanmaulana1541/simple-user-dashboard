@@ -8,70 +8,63 @@
 </head>
 <body>
 
-  <!-- HERO -->
-  <header class="hero">
-    <h1>User Dashboard</h1>
-    <p id="greeting">Welcome back</p>
-  </header>
+  <!-- NAVIGATION -->
+  <nav class="navbar">
+    <h1 class="logo">Dashboard</h1>
+    <div class="nav-links">
+      <button data-page="dashboard" class="nav-btn active">Dashboard</button>
+      <button data-page="tasks" class="nav-btn">Tasks</button>
+      <button data-page="profile" class="nav-btn">Profile</button>
+    </div>
+  </nav>
 
+  <!-- MAIN CONTENT -->
   <main class="container">
 
-    <!-- USER PROFILE -->
-    <section class="card">
-      <h2>User Profile</h2>
-      <div class="profile">
-        <div class="avatar">IM</div>
-        <div>
-          <p><strong>Name:</strong> Ivan Maulana</p>
-          <p><strong>Role:</strong> Frontend Enthusiast</p>
-          <p><strong>Status:</strong> Active</p>
-        </div>
-      </div>
-    </section>
+    <!-- DASHBOARD PAGE -->
+    <section id="dashboard" class="page active">
+      <h2>Overview</h2>
 
-    <!-- STATISTICS -->
-    <section class="card">
-      <h2>Statistics</h2>
       <div class="stats">
-        <div class="stat-card">
+        <div class="card">
           <h3>3</h3>
           <p>Projects</p>
         </div>
-        <div class="stat-card">
-          <h3 id="taskCount">0</h3>
+        <div class="card">
+          <h3>24</h3>
           <p>Tasks</p>
         </div>
-        <div class="stat-card">
+        <div class="card">
           <h3>5</h3>
           <p>Messages</p>
         </div>
       </div>
     </section>
 
-    <!-- MY TASKS -->
-    <section class="card">
+    <!-- TASKS PAGE -->
+    <section id="tasks" class="page">
       <h2>My Tasks</h2>
 
       <div class="task-input">
-        <input
-          type="text"
-          id="taskInput"
-          placeholder="Add a new task..."
-        />
+        <input type="text" id="taskInput" placeholder="Add a new task..." />
         <button id="addTaskBtn">Add</button>
       </div>
 
-      <ul id="taskList"></ul>
+      <ul id="taskList" class="task-list"></ul>
     </section>
 
-    <!-- RECENT ACTIVITY -->
-    <section class="card">
-      <h2>Recent Activity</h2>
-      <ul class="activity">
-        <li>Logged in to dashboard</li>
-        <li>Viewed statistics</li>
-        <li>Updated profile</li>
-      </ul>
+    <!-- PROFILE PAGE -->
+    <section id="profile" class="page">
+      <h2>User Profile</h2>
+
+      <div class="profile-card">
+        <div class="avatar">IM</div>
+        <div class="profile-info">
+          <p><strong>Name:</strong> Ivan Maulana</p>
+          <p><strong>Role:</strong> Frontend Enthusiast</p>
+          <p><strong>Status:</strong> Active</p>
+        </div>
+      </div>
     </section>
 
   </main>
