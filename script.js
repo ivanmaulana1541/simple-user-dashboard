@@ -1,20 +1,42 @@
+/* =========================
+   MINI SPA NAVIGATION
+========================= */
+
+const navButtons = document.querySelectorAll(".nav-btn");
+const pages = document.querySelectorAll(".page");
+
+function showPage(pageId) {
+  pages.forEach(page => {
+    page.classList.remove("active");
+  });
+
+  navButtons.forEach(btn => {
+    btn.classList.remove("active");
+  });
+
+  document.getElementById(pageId).classList.add("active");
+
+  document
+    .querySelector(`.nav-btn[data-page="${pageId}"]`)
+    .classList.add("active");
+}
+
+navButtons.forEach(button => {
+  button.addEventListener("click", () => {
+    const page = button.getAttribute("data-page");
+    showPage(page);
+  });
+});
+
+/* =========================
+   TASK MANAGER
+========================= */
+
 const taskInput = document.getElementById("taskInput");
 const addTaskBtn = document.getElementById("addTaskBtn");
 const taskList = document.getElementById("taskList");
-const taskCount = document.getElementById("taskCount");
 
 let tasks = [];
-
-addTaskBtn.addEventListener("click", () => {
-  const taskText = taskInput.value.trim();
-
-  if (taskText === "") return;
-
-  tasks.push(taskText);
-  taskInput.value = "";
-
-  renderTasks();
-});
 
 function renderTasks() {
   taskList.innerHTML = "";
@@ -24,14 +46,19 @@ function renderTasks() {
     li.textContent = task;
     taskList.appendChild(li);
   });
-
-  taskCount.textContent = tasks.length;
 }
 
-/* Greeting */
-const greeting = document.getElementById("greeting");
-const hour = new Date().getHours();
+addTaskBtn.addEventListener("click", () => {
+  const text = taskInput.value.trim();
+  if (text === "") return;
 
-if (hour < 12) greeting.textContent = "Good morning";
-else if (hour < 18) greeting.textContent = "Good afternoon";
-else greeting.textContent = "Good evening";
+  tasks.push(text);
+  taskInput.value = "";
+  renderTasks();
+});
+
+taskInput.addEventListener("keypress", e => {
+  if (e.key === "Enter") {
+    addTaskBtn.click();
+  }
+});
