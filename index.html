@@ -8,21 +8,20 @@
 </head>
 <body>
 
-  <!-- HEADER -->
-  <header class="header">
+  <!-- HERO -->
+  <header class="hero">
     <h1>User Dashboard</h1>
-    <p id="greeting">Hello</p>
+    <p id="greeting">Welcome back</p>
   </header>
 
-  <!-- MAIN -->
   <main class="container">
 
-    <!-- PROFILE -->
+    <!-- USER PROFILE -->
     <section class="card">
       <h2>User Profile</h2>
       <div class="profile">
         <div class="avatar">IM</div>
-        <div class="info">
+        <div>
           <p><strong>Name:</strong> Ivan Maulana</p>
           <p><strong>Role:</strong> Frontend Enthusiast</p>
           <p><strong>Status:</strong> Active</p>
@@ -34,23 +33,23 @@
     <section class="card">
       <h2>Statistics</h2>
       <div class="stats">
-        <div class="stat">
-          <span class="number" id="projects">0</span>
-          <span class="label">Projects</span>
+        <div class="stat-card">
+          <h3>3</h3>
+          <p>Projects</p>
         </div>
-        <div class="stat">
-          <span class="number" id="tasks">0</span>
-          <span class="label">Tasks</span>
+        <div class="stat-card">
+          <h3 id="taskCount">0</h3>
+          <p>Tasks</p>
         </div>
-        <div class="stat">
-          <span class="number" id="messages">0</span>
-          <span class="label">Messages</span>
+        <div class="stat-card">
+          <h3>5</h3>
+          <p>Messages</p>
         </div>
       </div>
     </section>
 
-    <!-- TASK MANAGER -->
-    <section class="card tasks-section">
+    <!-- MY TASKS -->
+    <section class="card">
       <h2>My Tasks</h2>
 
       <div class="task-input">
@@ -62,29 +61,21 @@
         <button id="addTaskBtn">Add</button>
       </div>
 
-      <ul id="taskList" class="task-list">
-        <!-- Tasks will appear here -->
-      </ul>
+      <ul id="taskList"></ul>
     </section>
 
-    <!-- ACTIVITY -->
+    <!-- RECENT ACTIVITY -->
     <section class="card">
       <h2>Recent Activity</h2>
       <ul class="activity">
-        <li>✔ Built dashboard layout</li>
-        <li>✔ Added task manager section</li>
-        <li>✔ Prepared for JavaScript interaction</li>
+        <li>Logged in to dashboard</li>
+        <li>Viewed statistics</li>
+        <li>Updated profile</li>
       </ul>
     </section>
 
   </main>
 
-  <!-- FOOTER -->
-  <footer class="footer">
-    Built with ❤️ using vanilla HTML, CSS, and JavaScript
-  </footer>
-
-  <!-- SCRIPT -->
   <script src="script.js"></script>
 </body>
 </html>
