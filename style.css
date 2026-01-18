@@ -1,69 +1,256 @@
+/* =========================
+   RESET & BASE
+========================= */
+
 * {
   box-sizing: border-box;
-  font-family: system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   margin: 0;
-  background: #f4f6f8;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #f8fafc;
+  color: #111827;
+  line-height: 1.6;
 }
 
-/* NAVBAR */
+/* =========================
+   NAVBAR
+========================= */
+
 .navbar {
-  background: #0f172a;
-  color: white;
-  padding: 16px 24px;
+  position: sticky;
+  top: 0;
+  background: rgba(248, 250, 252, 0.85);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid #e5e7eb;
+  z-index: 1000;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 20px 32px;
+}
+
+.logo {
+  font-size: 18px;
+  font-weight: 500;
+  color: #020617;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
 }
 
 .nav-btn {
-  background: transparent;
+  background: none;
   border: none;
-  color: #cbd5f5;
-  margin-left: 12px;
+  font-size: 15px;
+  color: #475569;
   cursor: pointer;
-  font-size: 14px;
+  padding: 6px 2px;
+  position: relative;
+}
+
+.nav-btn::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background: #020617;
+  transition: width 0.3s ease;
+}
+
+.nav-btn:hover::after,
+.nav-btn.active::after {
+  width: 100%;
 }
 
 .nav-btn.active {
-  color: white;
-  font-weight: bold;
+  color: #020617;
 }
 
-/* CONTAINER */
+/* =========================
+   LAYOUT
+========================= */
+
 .container {
-  padding: 40px;
+  max-width: 960px;
+  margin: auto;
+  padding: 80px 24px 120px;
 }
 
-/* SPA PAGES */
 .page {
   display: none;
 }
 
 .page.active {
   display: block;
+  animation: fadeIn 0.5s ease;
 }
 
-/* TASKS */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================
+   HEADINGS
+========================= */
+
+h2 {
+  font-size: 32px;
+  font-weight: 500;
+  margin-bottom: 32px;
+  color: #020617;
+}
+
+/* =========================
+   STATS
+========================= */
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 32px;
+}
+
+.stats .card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 32px;
+  box-shadow: 0 10px 30px rgba(2, 6, 23, 0.06);
+}
+
+.stats .card h3 {
+  font-size: 36px;
+  font-weight: 500;
+  margin: 0 0 8px;
+}
+
+.stats .card p {
+  font-size: 14px;
+  color: #64748b;
+}
+
+/* =========================
+   TASK MANAGER
+========================= */
+
 .task-input {
-  margin-bottom: 16px;
+  display: flex;
+  gap: 12px;
+  margin-bottom: 32px;
 }
 
 .task-input input {
-  padding: 8px;
+  flex: 1;
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  font-size: 15px;
+}
+
+.task-input input:focus {
+  outline: none;
+  border-color: #020617;
 }
 
 .task-input button {
-  padding: 8px 12px;
-}
-#taskList li {
+  padding: 14px 22px;
+  border-radius: 12px;
+  border: none;
+  background: #020617;
+  color: white;
+  font-size: 15px;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.task-input button:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+#taskList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#taskList li {
+  background: #ffffff;
+  padding: 18px 20px;
+  border-radius: 14px;
+  margin-bottom: 14px;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(2, 6, 23, 0.05);
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+#taskList li:hover {
+  transform: translateY(-1px);
 }
 
 #taskList li.done {
   text-decoration: line-through;
   color: #9ca3af;
+  background: #f1f5f9;
+}
+
+/* =========================
+   PROFILE
+========================= */
+
+.profile-card {
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 40px;
+  max-width: 520px;
+  box-shadow: 0 12px 30px rgba(2, 6, 23, 0.06);
+}
+
+.avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: #020617;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.profile-info p {
+  margin: 8px 0;
+  color: #374151;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 640px) {
+  .container {
+    padding: 64px 20px 100px;
+  }
+
+  h2 {
+    font-size: 26px;
+  }
 }
