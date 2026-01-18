@@ -1,34 +1,21 @@
-/* =========================
-   GREETING
-========================= */
-
-const greetingEl = document.getElementById("greeting");
-const hour = new Date().getHours();
-
-let greeting = "Hello";
-if (hour < 12) greeting = "Good morning";
-else if (hour < 18) greeting = "Good afternoon";
-else greeting = "Good evening";
-
-greetingEl.textContent = greeting;
-
-/* =========================
-   TASK MANAGER LOGIC
-========================= */
-
 const taskInput = document.getElementById("taskInput");
 const addTaskBtn = document.getElementById("addTaskBtn");
 const taskList = document.getElementById("taskList");
-const tasksCountEl = document.getElementById("tasks");
+const taskCount = document.getElementById("taskCount");
 
 let tasks = [];
 
-/* Update statistics */
-function updateTaskCount() {
-  tasksCountEl.textContent = tasks.length;
-}
+addTaskBtn.addEventListener("click", () => {
+  const taskText = taskInput.value.trim();
 
-/* Render tasks to DOM */
+  if (taskText === "") return;
+
+  tasks.push(taskText);
+  taskInput.value = "";
+
+  renderTasks();
+});
+
 function renderTasks() {
   taskList.innerHTML = "";
 
@@ -38,26 +25,13 @@ function renderTasks() {
     taskList.appendChild(li);
   });
 
-  updateTaskCount();
+  taskCount.textContent = tasks.length;
 }
 
-/* Add task */
-function addTask() {
-  const taskText = taskInput.value.trim();
+/* Greeting */
+const greeting = document.getElementById("greeting");
+const hour = new Date().getHours();
 
-  if (taskText === "") return;
-
-  tasks.push(taskText);
-  taskInput.value = "";
-
-  renderTasks();
-}
-
-/* Event listeners */
-addTaskBtn.addEventListener("click", addTask);
-
-taskInput.addEventListener("keypress", e => {
-  if (e.key === "Enter") {
-    addTask();
-  }
-});
+if (hour < 12) greeting.textContent = "Good morning";
+else if (hour < 18) greeting.textContent = "Good afternoon";
+else greeting.textContent = "Good evening";
