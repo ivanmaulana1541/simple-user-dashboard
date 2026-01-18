@@ -1,0 +1,156 @@
+/* =========================
+   BASE
+========================= */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #f8fafc;
+  color: #0f172a;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.header {
+  background: #0f172a;
+  color: #ffffff;
+  text-align: center;
+  padding: 64px 20px;
+}
+
+.header h1 {
+  font-size: 40px;
+  margin-bottom: 12px;
+}
+
+.header p {
+  opacity: 0.8;
+  font-size: 16px;
+}
+
+/* =========================
+   CONTAINER
+========================= */
+
+.container {
+  max-width: 1000px;
+  margin: auto;
+  padding: 64px 20px;
+  display: grid;
+  gap: 32px;
+}
+
+/* =========================
+   CARD
+========================= */
+
+.card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.card h2 {
+  margin-top: 0;
+  margin-bottom: 24px;
+  font-size: 22px;
+}
+
+/* =========================
+   PROFILE
+========================= */
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.avatar {
+  width: 64px;
+  height: 64px;
+  background: #0f172a;
+  color: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.info p {
+  margin: 6px 0;
+}
+
+/* =========================
+   STATS
+========================= */
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 24px;
+}
+
+.stat {
+  background: #f1f5f9;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+}
+
+.stat .number {
+  display: block;
+  font-size: 32px;
+  font-weight: 600;
+}
+
+.stat .label {
+  font-size: 14px;
+  color: #64748b;
+}
+
+/* =========================
+   ACTIVITY
+========================= */
+
+.activity {
+  padding-left: 20px;
+}
+
+.activity li {
+  margin-bottom: 12px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+  text-align: center;
+  padding: 32px 20px;
+  font-size: 14px;
+  color: #64748b;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 600px) {
+  .header h1 {
+    font-size: 32px;
+  }
+
+  .card {
+    padding: 24px;
+  }
+}
