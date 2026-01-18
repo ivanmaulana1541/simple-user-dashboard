@@ -21,21 +21,22 @@
   <!-- MAIN -->
   <main class="container">
 
-    <!-- DASHBOARD PAGE -->
+    <!-- DASHBOARD -->
     <section id="dashboard" class="page active">
       <h2>Overview</h2>
+      <p class="subtitle">
+        A quiet space to keep track of what matters today.
+      </p>
 
       <div class="stats">
         <div class="card">
           <h3 id="totalTasks">0</h3>
           <p>Total Tasks</p>
         </div>
-
         <div class="card">
           <h3 id="activeTasks">0</h3>
           <p>Active</p>
         </div>
-
         <div class="card">
           <h3 id="doneTasks">0</h3>
           <p>Completed</p>
@@ -43,7 +44,7 @@
       </div>
     </section>
 
-    <!-- TASKS PAGE -->
+    <!-- TASKS -->
     <section id="tasks" class="page">
       <h2>My Tasks</h2>
 
@@ -57,9 +58,13 @@
       </div>
 
       <ul id="taskList"></ul>
+
+      <p id="emptyState" class="empty-state">
+        Nothing here yet. Take it slow.
+      </p>
     </section>
 
-    <!-- PROFILE PAGE -->
+    <!-- PROFILE -->
     <section id="profile" class="page">
       <h2>User Profile</h2>
 
@@ -75,7 +80,6 @@
 
   </main>
 
-  <!-- SCRIPT -->
   <script src="script.js"></script>
 </body>
 </html>
