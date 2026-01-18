@@ -1,3 +1,64 @@
+/* =========================
+   TOP BAR / HEADER
+========================= */
+
+.topbar {
+  background: #0f172a; /* biru dongker ala Syabil */
+  color: #ffffff;
+  padding: 18px 0;
+}
+
+.topbar-inner {
+  max-width: 1100px;
+  margin: auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+/* NAV BUTTONS */
+.nav {
+  display: flex;
+  gap: 28px;
+}
+
+.nav-btn {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 15px;
+  cursor: pointer;
+  padding-bottom: 4px;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav-btn:hover {
+  color: #ffffff;
+}
+
+/* ACTIVE STATE */
+.nav-btn.active {
+  color: #ffffff;
+}
+
+.nav-btn.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 100%;
+  height: 2px;
+  background: #ffffff;
+  border-radius: 2px;
+}
 /* RESET */
 * {
   box-sizing: border-box;
