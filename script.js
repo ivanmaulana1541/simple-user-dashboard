@@ -1,15 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-  /* =========================
-     MINI SPA NAVIGATION
-  ========================= */
-
+  /* MINI SPA */
   const buttons = document.querySelectorAll(".nav-btn");
   const pages = document.querySelectorAll(".page");
 
   function showPage(pageId) {
-    pages.forEach(page => page.classList.remove("active"));
-    buttons.forEach(btn => btn.classList.remove("active"));
+    pages.forEach(p => p.classList.remove("active"));
+    buttons.forEach(b => b.classList.remove("active"));
 
     document.getElementById(pageId).classList.add("active");
     document
@@ -25,17 +22,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
   showPage("dashboard");
 
-  /* =========================
-     TASK MANAGER (STATE)
-  ========================= */
-
-  const taskInput = document.getElementById("taskInput");
+  /* TASK STATE */
+  const input = document.getElementById("taskInput");
   const addBtn = document.getElementById("addTaskBtn");
   const list = document.getElementById("taskList");
+  const emptyState = document.getElementById("emptyState");
 
   const totalEl = document.getElementById("totalTasks");
-  const doneEl = document.getElementById("doneTasks");
   const activeEl = document.getElementById("activeTasks");
+  const doneEl = document.getElementById("doneTasks");
 
   let tasks = [];
 
@@ -48,36 +43,35 @@ document.addEventListener("DOMContentLoaded", () => {
   function renderTasks() {
     list.innerHTML = "";
 
-    tasks.forEach((task, index) => {
+    tasks.forEach((task, i) => {
       const li = document.createElement("li");
       li.textContent = task.text;
-
-      if (task.done) {
-        li.classList.add("done");
-      }
+      if (task.done) li.classList.add("done");
 
       li.addEventListener("click", () => {
-        tasks[index].done = !tasks[index].done;
+        tasks[i].done = !tasks[i].done;
         renderTasks();
         updateStats();
       });
 
       list.appendChild(li);
     });
+
+    emptyState.style.display = tasks.length === 0 ? "block" : "none";
   }
 
   addBtn.addEventListener("click", () => {
-    const text = taskInput.value.trim();
+    const text = input.value.trim();
     if (!text) return;
 
     tasks.push({ text, done: false });
-    taskInput.value = "";
+    input.value = "";
 
     renderTasks();
     updateStats();
   });
 
-  taskInput.addEventListener("keydown", e => {
+  input.addEventListener("keydown", e => {
     if (e.key === "Enter") addBtn.click();
   });
 
